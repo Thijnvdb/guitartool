@@ -1,0 +1,19 @@
+@import "./colors.scss";
+
+.page {
+    width: 100%;
+    min-height: 100vh;
+    background-color: $dark;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    .content {
+        width: 80%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}

@@ -5,16 +5,16 @@
     width: 95%;
     display: grid;
     grid-template-areas: 
-    "input input dia"
-    "notes notes dia"
-    "chords chords dia"
-    "chords chords dia"
-    "scaledia scaledia dia";
+    "input input input dia"
+    "notes notes notes dia"
+    "presets chords chords dia"
+    "presets chords chords dia"
+    "presets scaledia scaledia dia";
     gap: 20px;
     grid-template-rows: 12% 12% 1fr 10% 30%;
-    grid-template-columns: 1fr 1fr 40%;
+    grid-template-columns: 10% 1fr 1fr 40%;
 
-    .input, .diagrams, .chords, .scaleNotes, .scaleDiagram {
+    .input, .diagrams, .chords, .scaleNotes, .scaleDiagram, .presets {
         display: flex;
         justify-content: space-around;
         align-items: center;
@@ -22,6 +22,37 @@
         border-radius: 2em;
         box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.226);
         overflow: hidden;
+    }
+
+    .presets {
+        justify-content: flex-start;
+        flex-direction: column;
+        grid-area: presets;
+        background-color: $dark-accent;
+
+        h1{
+            padding: 0 10px;
+            border-bottom: 1px solid $dark;
+            color: $dark;
+        }
+        
+        button {
+            border:none;
+            outline: none;
+            font-size: 1.2em;
+            border-radius: 2em;
+            cursor: pointer;
+            padding: 0.5em;
+            transition: 0.1s ease-in;
+            background-color: $dark;
+            color: $light;
+
+            transition: 200ms ease-in-out;
+
+            &:hover {
+                background-color: lighten($color: $dark, $amount: 10);
+            }
+        }
     }
 
     .scaleNotes {

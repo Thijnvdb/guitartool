@@ -1,10 +1,14 @@
 import { useEffect, useState } from "react"
 import { CHORD_TYPES, NOTES, SCALE_FAMILIES, STANDARD_TUNING } from "../constants";
 import { Scale } from "../objects/Scale";
-import { getDiagramsForChord } from "../util/TheoryUtils.ts";
 import "../stylesheets/explorer.scss";
 import Diagram from "../components/Diagram";
 import ScaleDiagram from "../components/ScaleDiagram";
+import { getDiagramsForChord } from "../logic/ChordDiagramLogic";
+
+const presets = [
+    {name:"Minor Pentatonic", family:SCALE_FAMILIES[0], mode:5, ommits:[1,5]}
+]
 
 export default function ScaleExplorer() {
     const [scale, setScale] = useState();
@@ -55,7 +59,11 @@ export default function ScaleExplorer() {
         setDiagrams(d);
     }
 
-    
+    function applyPreset(preset) {
+        if (preset.family) setFamily(preset.family);
+        if (preset.mode) setMode(preset.mode);
+        if (preset.ommits) setOmmits(preset.ommits);
+    }
 
     return <div className="page">
         <div className="explorer">
@@ -64,7 +72,7 @@ export default function ScaleExplorer() {
                     Root: <br/>
                     <select onChange={e=>setRoot(e.target.value)}>
                         {
-                            NOTES.map((note, i) => <option key={i+"n"} value={i}>{note.names[0]}</option>)
+                            NOTES.map((note, i) => <option key={i+"n"} value={i} selected={root === i ? "selected":null}>{note.names[0]}</option>)
                         }
                     </select>
                 </label>
@@ -72,7 +80,7 @@ export default function ScaleExplorer() {
                     Scale Type:<br/> 
                     <select onChange={e=>setFamily(SCALE_FAMILIES[e.target.value])}>
                         {
-                            SCALE_FAMILIES.map((fam, i) => <option key={i+"f"} value={i}>{fam.name}</option>)
+                            SCALE_FAMILIES.map((fam, i) => <option key={i+"f"} value={i} selected={family.name === fam.name ? "selected":null}>{fam.name}</option>)
                         }
                     </select>
                 </label>
@@ -80,7 +88,7 @@ export default function ScaleExplorer() {
                     Scale Type:<br/> 
                     <select onChange={e=>setMode(e.target.value)}>
                         {
-                            family?.modes?.map((mode, i) => <option key={i+"m"} value={i}>{mode}</option>)
+                            family?.modes?.map((mode, i) => <option key={i+"m"} value={i} selected={mode === i ? "selected" : null}>{mode}</option>)
                         }
                     </select>
                 </label>
@@ -119,8 +127,16 @@ export default function ScaleExplorer() {
                 }
                 </div>
             </div>
+            <div className="presets">
+                <h1>Presets</h1>
+                {
+                    presets.map(preset => 
+                        <button onClick={()=>applyPreset(preset)}>{preset.name}</button>    
+                    )
+                }
+            </div>
             <div className="diagrams">
-               {diagrams.map((e,i)=> <Diagram key={i+"di"} data={e}/>)}
+               {diagrams.map((e,i)=> <Diagram k={i+"di"} data={e}/>)}
             </div>
             <div className="scaleDiagram">
                 {scale && <ScaleDiagram tuning={STANDARD_TUNING} ommits={ommits} notes={scale.notes}/>}

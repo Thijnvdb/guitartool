@@ -29,8 +29,8 @@ const circle = {
     /* fill:"#212121" */
 }
 
-export default function Diagram(props) {
-    const chordData = props.data;
+export default function Diagram({data, k}) {
+    const chordData = data;
     if(!chordData || !chordData.fingering) return "";
 
     chordData.fingering = Object.values(chordData.fingering)
@@ -59,12 +59,23 @@ export default function Diagram(props) {
             data.push(<text style={subtext} x={margin.left + stringOffset*5.7} y={margin.top + fretHeight/1.66}>{nutLocation + 1}</text>)
         }
         for (let i = 0; i < stringCount; i++) {
-            let position = chord.fingering[i] - nutLocation;
+            let position = chord.fingering[i];
 
-            if(position >= 1) {
-                data.push(<circle r={circleRadius} cx={(margin.left + i * stringOffset)} cy={margin.top + position * fretHeight - fretHeight/2} style={circle}/>)
+            if(position > 0) {
+                data.push(<circle r={circleRadius} cx={(margin.left + i * stringOffset)} cy={margin.top + (position - nutLocation) * fretHeight - fretHeight/2} style={circle}/>)
             } else {
-                let symbol = position === -1 ? "x" : "o";
+                let symbol = "";
+                switch(position) {
+                    case 0:
+                        symbol = "o";
+                        break;
+                    case -1:
+                        symbol = "x";
+                        break;
+                    default:
+                        break;
+                }
+
                 data.push(<text width={12} height={14} x={i * stringOffset + margin.left} y={margin.top - 14}/*  fill={"#000000"} */ textAnchor="middle" style={title}>{symbol}</text>)
             }
         }
@@ -86,7 +97,7 @@ export default function Diagram(props) {
     
     let fingerPlacement = _generateChordDisplay(chordData, nutLocation);
 
-    return (<svg className="diagram" viewBox={"0 0 "+((stringOffset*(stringCount-1)) + margin.left + margin.right)+" "+((fretHeight*fretsDisplayed) + margin.top + margin.bottom)}>
+    return (<svg key={k} className="diagram" viewBox={"0 0 "+((stringOffset*(stringCount-1)) + margin.left + margin.right)+" "+((fretHeight*fretsDisplayed) + margin.top + margin.bottom)}>
         <text className="name" x={((stringOffset*(stringCount-1)) + margin.left + margin.right)/2} y={margin.top / 2} textAnchor="middle" style={title}>{chordData.name}</text>
         <line x1={margin.left - 5} x2={margin.left + stringOffset*(stringCount - 1) + 5} y1={margin.top} y2={margin.top} style={nut}/>
         {lines}

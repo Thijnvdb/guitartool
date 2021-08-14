@@ -186,14 +186,14 @@
         width: 100%;
         height: 100%;
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
         grid-area: chords;
-        margin: auto;
+        margin: 0;
 
         .repeater {
             width: 100%;
-            height: 30%;
+            height: 33.3%;
             display: grid;
             grid-template-rows: 50px 1fr;
             margin-bottom: 1em;
@@ -219,7 +219,6 @@
                 flex-direction: row;
                 align-items: center;
                 justify-content: space-around;
-                margin: 1em 0;
 
                 span.chord {
                     @for $i from 1 through 10 {
@@ -235,7 +234,7 @@
                     align-items: center;
                     flex-direction: column;
                     border:none;
-                    font-size: 1.2em;
+                    font-size: 1.25em;
                     border-radius: 0.3em;
                     
                     color: $dark;

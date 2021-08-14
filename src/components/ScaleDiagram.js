@@ -48,14 +48,14 @@ export default function ScaleDiagram({notes, ommits, tuning = STANDARD_TUNING}) 
     function generateLines() {
         let lines = [];
         for (let i = 1; i < fretsDisplayed + 1; i++) {
-            lines.push(<line style={line} x1={margin.left + (i*fretheight)} x2={margin.left + (i*fretheight)} y1={margin.top} y2={margin.top + stringOffset * (stringCount - 1)} />)
+            lines.push(<line x1={margin.left + (i*fretheight)} x2={margin.left + (i*fretheight)} y1={margin.top} y2={margin.top + stringOffset * (stringCount - 1)} />)
         }
         
         for (let i = 0; i < stringCount; i++) {
-            lines.push(<line style={line} x1={margin.left} x2={margin.left + fretsDisplayed*fretheight} y1={margin.top + i * stringOffset} y2={margin.top + i * stringOffset}/>)    
+            lines.push(<line x1={margin.left} x2={margin.left + fretsDisplayed*fretheight} y1={margin.top + i * stringOffset} y2={margin.top + i * stringOffset}/>)    
         }
-        lines.push(<line style={nut} x1={margin.left} x2={margin.left} y1={margin.top - 2} y2={margin.top + (stringOffset * (stringCount - 1)) + 2} />);
-        lines.push(<line style={halfnut} x1={margin.left + fretheight * 12} x2={margin.left + fretheight * 12} y1={margin.top - 2} y2={margin.top + (stringOffset * (stringCount - 1)) + 2} />);
+        lines.push(<line className="nut" x1={margin.left} x2={margin.left} y1={margin.top - 2} y2={margin.top + (stringOffset * (stringCount - 1)) + 2} />);
+        lines.push(<line className="halfnut" x1={margin.left + fretheight * 12} x2={margin.left + fretheight * 12} y1={margin.top - 2} y2={margin.top + (stringOffset * (stringCount - 1)) + 2} />);
         return lines;
     }
 
@@ -68,11 +68,11 @@ export default function ScaleDiagram({notes, ommits, tuning = STANDARD_TUNING}) 
                 let note = (base + fret) % 12;
                 if (notes.includes(note) && !ommits.includes(notes.indexOf(note))) {
                     if (fret === 0) {
-                        dots.push(<circle r={circleRadius} cx={(margin.left - fretheight/2.8)} cy={margin.top + string * stringOffset} style={note === notes[0] ? rootCircle : circle}/>);
-                        dots.push(<text x={(margin.left - fretheight/2.8)} y={margin.top + string * stringOffset + 5} textAnchor={"middle"} style={subtext}>{NOTES[note].names[0]}</text>);
+                        dots.push(<circle r={circleRadius} cx={(margin.left - fretheight/2.8)} cy={margin.top + string * stringOffset} className={note === notes[0] ? "rootCircle" : "circle"}/>);
+                        dots.push(<text className="subtext" x={(margin.left - fretheight/2.8)} y={margin.top + string * stringOffset + 3} textAnchor={"middle"}>{NOTES[note].names[0]}</text>);
                     } else {
-                        dots.push(<circle r={circleRadius} cx={(margin.left + fret * fretheight - fretheight/2)} cy={margin.top + string * stringOffset} style={note === notes[0] ? rootCircle : circle}/>)
-                        dots.push(<text x={(margin.left + fret * fretheight - fretheight/2)} y={margin.top + string * stringOffset + 5} textAnchor={"middle"} style={subtext}>{NOTES[note].names[0]}</text>);
+                        dots.push(<circle r={circleRadius} cx={(margin.left + fret * fretheight - fretheight/2)} cy={margin.top + string * stringOffset} className={note === notes[0] ? "rootCircle" : "circle"}/>)
+                        dots.push(<text className="subtext" x={(margin.left + fret * fretheight - fretheight/2)} y={margin.top + string * stringOffset + 3} textAnchor={"middle"}>{NOTES[note].names[0]}</text>);
                     }
                 }
             }
@@ -83,10 +83,17 @@ export default function ScaleDiagram({notes, ommits, tuning = STANDARD_TUNING}) 
 
     function generateNumbers() {
         let numbers = [];
-        const nums = [3,5,7,9,12];
+        const nums = [1,3,5,7,9,12];
 
         nums.forEach(n => {
-            numbers.push(<text textAnchor={"middle"} x={margin.left + (fretheight * n) - fretheight/2} y={margin.top / 2} >{n}</text>);
+            numbers.push(<text textAnchor={"middle"} x={margin.left + (fretheight * n) - fretheight/2} y={margin.top + stringOffset*6 + margin.bottom / 2} className="fretNumber">{n}</text>);
+            
+            if(n === 12) {
+                numbers.push(<circle r={circleRadius/2} className="boardDot" cx={margin.left + (fretheight * n) - fretheight/2} cy={margin.top + stringOffset*1.5}></circle>)
+                numbers.push(<circle r={circleRadius/2} className="boardDot" cx={margin.left + (fretheight * n) - fretheight/2} cy={margin.top + stringOffset*3.5}></circle>)
+            } else {
+                numbers.push(<circle r={circleRadius/2} className="boardDot" cx={margin.left + (fretheight * n) - fretheight/2} cy={margin.top + stringOffset*2.5}></circle>)
+            }
         })
 
         return numbers;
@@ -94,9 +101,9 @@ export default function ScaleDiagram({notes, ommits, tuning = STANDARD_TUNING}) 
 
     return <svg viewBox={"0 0 "+(margin.left + (fretheight * fretsDisplayed) + margin.right)+" "+(margin.top + (stringOffset * (stringCount - 1)) + margin.bottom)}  /* width={margin.left + (fretheight * fretsDisplayed) + margin.right} height={margin.top + (stringOffset * (stringCount - 1)) + margin.bottom} */>
         {/* <rect width={margin.left+fretheight * fretsDisplayed+margin.right} height={margin.top+stringOffset * (stringCount - 1)+margin.bottom}  style={{fill:"#888"}}/> */}
-        <rect y={margin.top} x={margin.left} width={fretheight * fretsDisplayed} height={stringOffset * (stringCount - 1)}  style={{fill:"#fff"}}/>
+        <rect y={margin.top} x={margin.left} width={fretheight * fretsDisplayed} height={stringOffset * (stringCount - 1)}  class="background"/>
+        {numbers}
         {lines}
         {dots}
-        {numbers}
     </svg>
 }

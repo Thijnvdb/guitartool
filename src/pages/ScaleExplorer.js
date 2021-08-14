@@ -55,16 +55,16 @@ export default function ScaleExplorer() {
                         }
                     </select>
                 </label>
-                <label>
+                {/* <label>
                     Scale Type:<br/> 
                     <select onChange={e=>setFamily(SCALE_FAMILIES[e.target.value])}>
                         {
                             SCALE_FAMILIES.map((fam, i) => <option key={i+"f"} value={i} selected={family.name === fam.name ? "selected":null}>{fam.name}</option>)
                         }
                     </select>
-                </label>
+                </label> */}
                 <label>
-                    Scale Type:<br/> 
+                    Mode:<br/> 
                     <select onChange={e=>setMode(e.target.value)}>
                         {
                             family?.modes?.map((mode, i) => <option key={i+"m"} value={i} selected={mode === i ? "selected" : null}>{mode}</option>)

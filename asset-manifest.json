@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/guitartool/static/css/main.f440266f.chunk.css",
-    "main.js": "/guitartool/static/js/main.7f17a9da.chunk.js",
-    "main.js.map": "/guitartool/static/js/main.7f17a9da.chunk.js.map",
-    "runtime-main.js": "/guitartool/static/js/runtime-main.ea0739cd.js",
-    "runtime-main.js.map": "/guitartool/static/js/runtime-main.ea0739cd.js.map",
-    "static/js/2.1ffe30d3.chunk.js": "/guitartool/static/js/2.1ffe30d3.chunk.js",
-    "static/js/2.1ffe30d3.chunk.js.map": "/guitartool/static/js/2.1ffe30d3.chunk.js.map",
-    "static/js/3.304305ad.chunk.js": "/guitartool/static/js/3.304305ad.chunk.js",
-    "static/js/3.304305ad.chunk.js.map": "/guitartool/static/js/3.304305ad.chunk.js.map",
+    "main.css": "/guitartool/static/css/main.2905ebf0.chunk.css",
+    "main.js": "/guitartool/static/js/main.9824ab74.chunk.js",
+    "main.js.map": "/guitartool/static/js/main.9824ab74.chunk.js.map",
+    "runtime-main.js": "/guitartool/static/js/runtime-main.8c598681.js",
+    "runtime-main.js.map": "/guitartool/static/js/runtime-main.8c598681.js.map",
+    "static/js/2.b28dbd7f.chunk.js": "/guitartool/static/js/2.b28dbd7f.chunk.js",
+    "static/js/2.b28dbd7f.chunk.js.map": "/guitartool/static/js/2.b28dbd7f.chunk.js.map",
+    "static/js/3.abb29274.chunk.js": "/guitartool/static/js/3.abb29274.chunk.js",
+    "static/js/3.abb29274.chunk.js.map": "/guitartool/static/js/3.abb29274.chunk.js.map",
     "index.html": "/guitartool/index.html",
-    "static/css/main.f440266f.chunk.css.map": "/guitartool/static/css/main.f440266f.chunk.css.map",
-    "static/js/2.1ffe30d3.chunk.js.LICENSE.txt": "/guitartool/static/js/2.1ffe30d3.chunk.js.LICENSE.txt"
+    "static/css/main.2905ebf0.chunk.css.map": "/guitartool/static/css/main.2905ebf0.chunk.css.map",
+    "static/js/2.b28dbd7f.chunk.js.LICENSE.txt": "/guitartool/static/js/2.b28dbd7f.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.ea0739cd.js",
-    "static/js/2.1ffe30d3.chunk.js",
-    "static/css/main.f440266f.chunk.css",
-    "static/js/main.7f17a9da.chunk.js"
+    "static/js/runtime-main.8c598681.js",
+    "static/js/2.b28dbd7f.chunk.js",
+    "static/css/main.2905ebf0.chunk.css",
+    "static/js/main.9824ab74.chunk.js"
   ]
 }

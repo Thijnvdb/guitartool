@@ -8,7 +8,7 @@ export default function ScaleExplorer() {
     const [scale, setScale] = useState();
     const [family, setFamily] = useState(SCALE_FAMILIES[0]);
     const [root, setRoot] = useState(0);
-    const [mode, setMode] = useState(0);
+    const [mode, setMode] = useState(1);
     const [ommits, setOmmits] = useState([]);
 
     const [triads, setTriads] = useState([]);

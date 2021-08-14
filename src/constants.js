@@ -1,5 +1,5 @@
 export const SCALE_FAMILIES = [
-    {name:"Major", intervals:[2,2,1,2,2,2,1], modes:["Major/Ionian", "Dorian", "Phrygian", "Lydian", "Mixolydian", "Natural Minor/Aeolian", "Locrian"]},
+    {name:"Major", intervals:[2,2,1,2,2,2,1], modes:["Lydian","Major/Ionian", "Mixolydian", "Dorian", "Aeolian/Natural Minor", "Phrygian", "Locrian"]},
     {name:"Melodic Minor", intervals:[2,1,2,2,2,2,1], modes:["Melodic Minor", "Dorian b2", "Lydian Aug.", "Lydian dom.", "Aeo. dom.", "Half diminished", "Alt."]},
     {name:"Harmonic Minor", intervals:[2,1,2,2,1,3,1], modes:["Harmonic Minor", "Locrian nat. 6", "Major #5", "Doroam #4", "Phrygian dom.", "Lydian #2", "Alt. dom. bb7"]},
     {name:"Harmonic Major", intervals:[2,2,1,2,1,3,1], modes:["Harmonic Major", "Dorian b5", "Phrygian b4", "Lydian b3", "Mixo. b2", "Lydian Augmented #2", "Locrian bb7"]},

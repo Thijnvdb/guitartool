@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/guitartool/static/css/main.2905ebf0.chunk.css",
+    "main.css": "/guitartool/static/css/main.c19ab2bb.chunk.css",
     "main.js": "/guitartool/static/js/main.9824ab74.chunk.js",
     "main.js.map": "/guitartool/static/js/main.9824ab74.chunk.js.map",
     "runtime-main.js": "/guitartool/static/js/runtime-main.8c598681.js",
@@ -10,13 +10,13 @@
     "static/js/3.abb29274.chunk.js": "/guitartool/static/js/3.abb29274.chunk.js",
     "static/js/3.abb29274.chunk.js.map": "/guitartool/static/js/3.abb29274.chunk.js.map",
     "index.html": "/guitartool/index.html",
-    "static/css/main.2905ebf0.chunk.css.map": "/guitartool/static/css/main.2905ebf0.chunk.css.map",
+    "static/css/main.c19ab2bb.chunk.css.map": "/guitartool/static/css/main.c19ab2bb.chunk.css.map",
     "static/js/2.b28dbd7f.chunk.js.LICENSE.txt": "/guitartool/static/js/2.b28dbd7f.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.8c598681.js",
     "static/js/2.b28dbd7f.chunk.js",
-    "static/css/main.2905ebf0.chunk.css",
+    "static/css/main.c19ab2bb.chunk.css",
     "static/js/main.9824ab74.chunk.js"
   ]
 }

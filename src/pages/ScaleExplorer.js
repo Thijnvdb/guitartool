@@ -74,7 +74,7 @@ export default function ScaleExplorer() {
             </div>
             <div className="scaleNotes">
                 {
-                    scale?.notes?.map((n, i) => <span key={"ommit"+i}className={ommits.includes(i) ? "ommit" : ""} onClick={()=>toggleOmmit(i)}>{NOTES[n].names[0]} <h3>{i}</h3></span>)
+                    scale?.notes?.map((n, i) => <span key={"ommit"+i}className={ommits.includes(i) ? "ommit" : ""} onClick={()=>toggleOmmit(i)}>{NOTES[n].names[0]} <h3>{i + 1}</h3></span>)
                 }
             </div>
             <div className="scaleDiagram">

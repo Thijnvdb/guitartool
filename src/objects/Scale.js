@@ -13,9 +13,12 @@ export class Scale{
     init() {
         let nts = [];
         nts[0] = Number(this.root);
-        for (let i = 0; i < this.family.intervals.length; i++) {
-            let j = (this.offset + i) % this.family.intervals.length;
-            nts.push((Number(nts[i]) + Number(this.family.intervals[j])) % 12);
+        for (let i = this.offset; i < this.family.intervals.length; i++) {
+            nts.push((Number(nts[nts.length - 1]) + Number(this.family.intervals[i])) % 12);
+        }
+
+        for (let i = 0; i < this.offset; i++) {
+            nts.push((Number(nts[nts.length - 1]) + Number(this.family.intervals[i])) % 12);
         }
 
         this.notes = nts;

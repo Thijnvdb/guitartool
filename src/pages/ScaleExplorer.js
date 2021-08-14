@@ -41,7 +41,6 @@ export default function ScaleExplorer() {
             o.splice(i,1);
         }
         setOmmits(o);
-        console.log(ommits);
     }
 
     return <div className="page">

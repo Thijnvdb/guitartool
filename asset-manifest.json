@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/guitartool/static/css/main.4f1cda4b.chunk.css",
-    "main.js": "/guitartool/static/js/main.b020895c.chunk.js",
-    "main.js.map": "/guitartool/static/js/main.b020895c.chunk.js.map",
+    "main.js": "/guitartool/static/js/main.87d96546.chunk.js",
+    "main.js.map": "/guitartool/static/js/main.87d96546.chunk.js.map",
     "runtime-main.js": "/guitartool/static/js/runtime-main.8c598681.js",
     "runtime-main.js.map": "/guitartool/static/js/runtime-main.8c598681.js.map",
     "static/js/2.036ae6f3.chunk.js": "/guitartool/static/js/2.036ae6f3.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.8c598681.js",
     "static/js/2.036ae6f3.chunk.js",
     "static/css/main.4f1cda4b.chunk.css",
-    "static/js/main.b020895c.chunk.js"
+    "static/js/main.87d96546.chunk.js"
   ]
 }

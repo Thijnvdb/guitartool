@@ -1,5 +1,12 @@
+export const MAJOR = "MAJOR";
+export const MINOR = "MINOR";
+export const DIMINISHED = "DIMINISHED";
+export const AUGMENTED = "AUGMENTED"; 
+
+export const romanNumerals = ["I", "II", "III", "IV", "V", "VI", "VII", "IX", "X"];
+
 export const SCALE_FAMILIES = [
-    {name:"Major", intervals:[2,2,1,2,2,2,1], modes:["Ionian (Major)", "Dorian", "Phrygian", "Lydian", "Mixolydian", "Aeolian (Natural Minor)", "Locrian"]},
+    {name:"Major", chordTypes:[MAJOR, MINOR, MINOR, MAJOR, MAJOR, MINOR, DIMINISHED] ,intervals:[2,2,1,2,2,2,1], modes:["Ionian (Major)", "Dorian", "Phrygian", "Lydian", "Mixolydian", "Aeolian (Natural Minor)", "Locrian"]},
     {name:"Melodic Minor", intervals:[2,1,2,2,2,2,1], modes:["Melodic Minor", "Dorian b2", "Lydian Aug.", "Lydian dom.", "Aeo. dom.", "Half diminished", "Alt."]},
     {name:"Harmonic Minor", intervals:[2,1,2,2,1,3,1], modes:["Harmonic Minor", "Locrian nat. 6", "Major #5", "Doroam #4", "Phrygian dom.", "Lydian #2", "Alt. dom. bb7"]},
     {name:"Harmonic Major", intervals:[2,2,1,2,1,3,1], modes:["Harmonic Major", "Dorian b5", "Phrygian b4", "Lydian b3", "Mixo. b2", "Lydian Augmented #2", "Locrian bb7"]},
@@ -27,6 +34,18 @@ export const NOTES = [
     {names: ["F#", "Gb"]},
     {names: ["G"]},
     {names: ["G#", "Ab"]}
+]
+
+export const progressions = [
+    [1, 4, 0],
+    [0, 5, 3, 4],
+    [1, 4, 0],
+    [0, 5, 1, 4],
+    [0, 4, 5, 3],
+    [0, 3, 5, 4],
+    [0, 2, 3, 4],
+    [0, 3, 0, 4],
+    [0, 3, 1, 4]
 ]
 
 export const STANDARD_TUNING = [7, 0, 5, 10, 2, 7];

@@ -1,7 +1,7 @@
 import { NOTES, STANDARD_TUNING } from "../constants";
 
 const fretsDisplayed = 13;
-const margin = {top:50,bottom:50, left:50, right:50};
+const margin = {top:30,bottom:30, left:10, right:10};
 const fretheight = 46;
 const stringCount = 6;
 const stringOffset = 25;
@@ -86,7 +86,7 @@ export default function ScaleDiagram({notes, ommits, tuning = STANDARD_TUNING}) 
         const nums = [1,3,5,7,9,12];
 
         nums.forEach(n => {
-            numbers.push(<text textAnchor={"middle"} x={margin.left + (fretheight * n) - fretheight/2} y={margin.top + stringOffset*6 + margin.bottom / 2} className="fretNumber">{n}</text>);
+            numbers.push(<text textAnchor={"middle"} x={margin.left + (fretheight * n) - fretheight/2} y={margin.top + stringOffset*6 + margin.bottom / 10} className="fretNumber">{n}</text>);
             
             if(n === 12) {
                 numbers.push(<circle r={circleRadius/2} className="boardDot" cx={margin.left + (fretheight * n) - fretheight/2} cy={margin.top + stringOffset*1.5}></circle>)

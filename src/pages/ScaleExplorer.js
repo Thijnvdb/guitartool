@@ -144,7 +144,7 @@ export default function ScaleExplorer() {
                     <div className="chordelements">
                         {
                             ninths?.map((e,i) => ommits.includes(i) ? <></> : <span className="chord" key={i+"b9"} /* onClick={()=>getDiagrams(e)} */>
-                                <h4 className={"scaleDegree " + degrees[i]}>{romanNumerals[i]}7</h4>
+                                <h4 className={"scaleDegree " + degrees[i]}>{romanNumerals[i]}9</h4>
                                 {e.name}
                                 <span className="notes">{e.notes.map((n,j) => 
                                     <span key={j+"9"+i} className="note">

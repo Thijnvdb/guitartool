@@ -1,0 +1,65 @@
+@import "./colors.scss";
+$backdropColor: #00000075;
+
+.popup {
+    z-index: 9999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+
+    .backdrop {
+        position: fixed;
+        z-index: inherit;
+        display: block;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: $backdropColor;
+        cursor: pointer;
+        animation: enterBackdrop 0.3s;
+    }
+
+    .contents {
+        div.center {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+
+            * {
+                margin: 1em;
+            }
+        }
+
+        overflow-y: auto;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: column;
+        margin: auto;
+        padding: 1.5em;
+        z-index: 10000;
+        min-width: 400px;
+        max-width: 80vw;
+        min-height: 300px;
+        max-height: 80vh;
+        border-radius: 1.5em;
+        background-color: $light;
+        animation: enterContent 0.3s;
+    }
+}
+
+@keyframes enterBackdrop {
+    from {background-color: transparent;}
+    to {background-color: $backdropColor;}
+}
+
+@keyframes enterContent {
+    from {transform: scale(0);}
+    to {transform: scale(1);}
+}

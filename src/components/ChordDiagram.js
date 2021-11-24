@@ -1,4 +1,6 @@
 import React from "react";
+import "../stylesheets/chordDiagram.scss";
+
 const margin = {top:70,bottom:10, left:50, right:50};
 const fretsDisplayed = 4;
 const fretHeight = 46; 
@@ -29,7 +31,7 @@ const circle = {
     /* fill:"#212121" */
 }
 
-export default function Diagram({data, k}) {
+export default function ChordDiagram({data, k}) {
     const chordData = data;
     if(!chordData || !chordData.fingering) return "";
 
@@ -39,7 +41,7 @@ export default function Diagram({data, k}) {
         let lines = [];
         for (let i = 0; i < stringCount; i++) {
             let x = margin.left + i * stringOffset;
-            lines.push(<line x1={x} x2={x} y1={margin.top} y2={margin.top + (fretHeight*fretsDisplayed)} style={line}/>)
+            lines.push(<line key={"line"+lines.length} x1={x} x2={x} y1={margin.top} y2={margin.top + (fretHeight*fretsDisplayed)} style={line}/>)
         }
         return lines;
     }
@@ -47,7 +49,7 @@ export default function Diagram({data, k}) {
     function _generateFrets() {
         let frets = [];
         for (let index = 1; index <= fretsDisplayed; index++) {
-            frets.push(<line x1={margin.left} x2={margin.left + stringOffset*(stringCount - 1)} y1={margin.top + index*fretHeight} y2={margin.top + index*fretHeight} style={line}/>)
+            frets.push(<line key={"fret"+frets.length} x1={margin.left} x2={margin.left + stringOffset*(stringCount - 1)} y1={margin.top + index*fretHeight} y2={margin.top + index*fretHeight} style={line}/>)
         }
         return frets;
     }
@@ -56,13 +58,13 @@ export default function Diagram({data, k}) {
         let data = [];
         if(nutLocation !== 0) {
             //add fret # next t highest finger
-            data.push(<text style={subtext} x={margin.left + stringOffset*5.7} y={margin.top + fretHeight/1.66}>{nutLocation + 1}</text>)
+            data.push(<text key={"q"+data.length} style={subtext} x={margin.left + stringOffset*5.7} y={margin.top + fretHeight/1.66}>{nutLocation + 1}</text>)
         }
         for (let i = 0; i < stringCount; i++) {
             let position = chord.fingering[i];
 
             if(position > 0) {
-                data.push(<circle r={circleRadius} cx={(margin.left + i * stringOffset)} cy={margin.top + (position - nutLocation) * fretHeight - fretHeight/2} style={circle}/>)
+                data.push(<circle key={"q"+data.length} r={circleRadius} cx={(margin.left + i * stringOffset)} cy={margin.top + (position - nutLocation) * fretHeight - fretHeight/2} style={circle}/>)
             } else {
                 let symbol = "";
                 switch(position) {
@@ -97,7 +99,7 @@ export default function Diagram({data, k}) {
     
     let fingerPlacement = _generateChordDisplay(chordData, nutLocation);
 
-    return (<svg key={k} className="diagram" viewBox={"0 0 "+((stringOffset*(stringCount-1)) + margin.left + margin.right)+" "+((fretHeight*fretsDisplayed) + margin.top + margin.bottom)}>
+    return (<svg key={k} className="chordDiagram" viewBox={"0 0 "+((stringOffset*(stringCount-1)) + margin.left + margin.right)+" "+((fretHeight*fretsDisplayed) + margin.top + margin.bottom)}>
         <text className="name" x={((stringOffset*(stringCount-1)) + margin.left + margin.right)/2} y={margin.top / 2} textAnchor="middle" style={title}>{chordData.name}</text>
         <line x1={margin.left - 5} x2={margin.left + stringOffset*(stringCount - 1) + 5} y1={margin.top} y2={margin.top} style={nut}/>
         {lines}

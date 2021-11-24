@@ -1,0 +1,14 @@
+@import "./colors.scss";
+.chordDiagram {
+    color: $primary;
+    width: 15vw;
+    height: auto;
+
+    line { 
+        stroke:$dark;
+    }
+
+    circle {
+        fill:$primary;
+    }
+}

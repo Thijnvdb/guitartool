@@ -1,6 +1,6 @@
 import {useContext} from 'react'
 import { NOTES, romanNumerals } from "../constants";
-import { getDiagramsForChord } from '../logic/ChordDiagramLogic2';
+import { getDiagramsForChord } from '../logic/ChordDiagramLogic';
 import { ScaleContext } from "../pages/ScaleExplorer";
 import ChordDiagram from './ChordDiagram';
 import Diagram from './ChordDiagram';
